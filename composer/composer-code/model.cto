@@ -1,0 +1,69 @@
+namespace org.example.basic
+
+participant User identified by primaryKey {
+    o String primaryKey
+    o String userId
+}
+
+asset UserData identified by primaryKey {
+    o String primaryKey
+    o String name
+    o String gender
+    o String dateOfBirth
+    o String address
+    o String email
+    o String userId
+    o String password
+    o String[] appId
+    o String nickName
+}
+
+asset LogAction identified by logKey {
+    o String logKey
+    o String appId
+    o String userId
+    o String contents
+}
+
+asset LogUserbox identified by primaryKey {
+    o String primaryKey
+    o String[] keyBox
+}
+
+transaction CreateAccount {
+    o String primaryKey
+    o String name
+    o String gender
+    o String dateOfBirth
+    o String address
+    o String email
+    o String userId
+    o String password
+    o String nickName
+}
+
+event CreateAcountTransaction {
+    o String primaryKey
+    o String name
+    o String gender
+    o String dateOfBirth
+    o String address
+    o String email
+    o String userId
+    o String password
+    o String nickName
+}
+
+transaction UserAction {
+    o String logKey
+    o String appId
+    o String userId
+    o String contents
+}
+
+event LogUserActionTransaction {
+    o String logKey
+    o String appId
+    o String userId
+    o String contents
+}
