@@ -1,0 +1,18 @@
+query QueryByOwnerData {
+  description: ""
+  statement:
+    SELECT org.myai.basic.UserData
+  	  WHERE (primaryKey == _$primaryKey)
+}
+query QueryByOwnerLog {
+  description: ""
+  statement:
+    SELECT org.myai.basic.UserLog
+  	  WHERE (primaryKey == _$primaryKey)
+}
+query QueryByActionLog {
+  description: ""
+  statement:
+  	SELECT org.myai.basic.LogAction
+	  WHERE (logKey == _$logKey) 
+}
