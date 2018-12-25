@@ -134,7 +134,7 @@ cat << EOF > DevServer_connection.json
 }
 EOF
 
-PRIVATE_KEY="${DIR}"/composer/crypto-config/peerOrganizations/org1.myai.com/users/Admin@org1.myai.com/msp/keystore/114aab0e76bf0c78308f89efc4b8c9423e31568da0c340ca187a9b17aa9a4457_sk
+PRIVATE_KEY="${DIR}"/composer/crypto-config/peerOrganizations/org1.myai.com/users/Admin@org1.myai.com/msp/keystore/5f2ba8348c2ee1bc32cf7337fe363b245b883abe1be6aa8f9f2c4c48dbb4f4e4_sk
 CERT="${DIR}"/composer/crypto-config/peerOrganizations/org1.myai.com/users/Admin@org1.myai.com/msp/signcerts/Admin@org1.myai.com-cert.pem
 
 if [ "${NOIMPORT}" != "true" ]; then
