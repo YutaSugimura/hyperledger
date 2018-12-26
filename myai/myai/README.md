@@ -1,3 +1,0 @@
-# myai
-
-myai
