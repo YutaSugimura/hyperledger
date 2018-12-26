@@ -1,0 +1,30 @@
+query QueryByOwnerData {
+  description: ""
+  statement:
+    SELECT org.my.basic.UserData
+  	  WHERE (primaryKey == _$primaryKey)
+}
+query QueryByOwnerLog {
+  description: ""
+  statement:
+    SELECT org.my.basic.UserLog
+  	  WHERE (primaryKey == _$primaryKey)
+}
+query QueryByActionLog {
+  description: ""
+  statement:
+  	SELECT org.my.basic.LogAction
+	  WHERE (logKey == _$logKey) 
+}
+query QueryByAppId {
+  description: ""
+  statement:
+    SELECT org.my.basic.LogAction
+      WHERE (appId == _$appId)
+}
+query QueryBylogin {
+  description: ""
+  statement:
+  	SELECT org.my.basic.UserData
+      WHERE( (email == _$email) AND (password == _$password) )
+}

@@ -1,0 +1,63 @@
+namespace org.my.basic
+
+participant User identified by primaryKey {
+        o String primaryKey
+}
+
+asset UserData identified by primaryKey {
+        o String primaryKey
+    o String email
+    o String password
+    o String name
+    o String dateOfBirth
+    o String gender
+}
+
+asset UserLog identified by primaryKey {
+        o String primaryKey
+    o String[] logKeyBox
+}
+
+asset LogAction identified by logKey {
+        o String logKey
+    o String user
+    o String appId
+    o String contents
+}
+
+asset Total identified by key {
+        o String key
+    o String user
+    o String logKey
+}
+
+transaction CreateAccount {
+  --> Total total
+    o String email
+    o String password
+    o String name
+    o String dateOfBirth
+    o String gender
+}
+
+event CreateAcountTransaction {
+    o String primaryKey
+    o String email
+    o String name
+    o String dateOfBirth
+    o String gender
+}
+
+transaction UserAction {
+  --> Total total
+  --> UserLog user
+    o String appId
+    o String contents
+}
+
+event LogUserActionTransaction {
+        o String logKey
+    o String user
+    o String appId
+    o String contents
+}

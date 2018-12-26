@@ -20,7 +20,7 @@ Usage() {
 	echo -e "\t-h or --host:\t\t(Optional) name of the host to specify in the connection profile"
 	echo -e "\t-n or --noimport:\t(Optional) don't import into card store"
 	echo ""
-	echo "myai: ./createPeerAdminCard.sh"
+	echo "my: ./createPeerAdminCard.sh"
 	echo ""
 	exit 1
 }
@@ -97,10 +97,10 @@ cat << EOF > DevServer_connection.json
     "channels": {
         "composerchannel": {
             "orderers": [
-                "orderer.myai.com"
+                "orderer.my.com"
             ],
             "peers": {
-                "peer0.org1.myai.com": {}
+                "peer0.org1.my.com": {}
             }
         }
     },
@@ -108,34 +108,34 @@ cat << EOF > DevServer_connection.json
         "Org1": {
             "mspid": "Org1MSP",
             "peers": [
-                "peer0.org1.myai.com"
+                "peer0.org1.my.com"
             ],
             "certificateAuthorities": [
-                "ca.org1.myai.com"
+                "ca.org1.my.com"
             ]
         }
     },
     "orderers": {
-        "orderer.myai.com": {
+        "orderer.my.com": {
             "url": "grpc://${HOST}:7050"
         }
     },
     "peers": {
-        "peer0.org1.myai.com": {
+        "peer0.org1.my.com": {
             "url": "grpc://${HOST}:7051"
         }
     },
     "certificateAuthorities": {
-        "ca.org1.myai.com": {
+        "ca.org1.my.com": {
             "url": "http://${HOST}:7054",
-            "caName": "ca.org1.myai.com"
+            "caName": "ca.org1.my.com"
         }
     }
 }
 EOF
 
-PRIVATE_KEY="${DIR}"/composer/crypto-config/peerOrganizations/org1.myai.com/users/Admin@org1.myai.com/msp/keystore/adaef1aebeeb3a8e1f207e71d221850799903be60d83656bd077ef6e3a085df8_sk
-CERT="${DIR}"/composer/crypto-config/peerOrganizations/org1.myai.com/users/Admin@org1.myai.com/msp/signcerts/Admin@org1.myai.com-cert.pem
+PRIVATE_KEY="${DIR}"/composer/crypto-config/peerOrganizations/org1.my.com/users/Admin@org1.my.com/msp/keystore/adaef1aebeeb3a8e1f207e71d221850799903be60d83656bd077ef6e3a085df8_sk
+CERT="${DIR}"/composer/crypto-config/peerOrganizations/org1.my.com/users/Admin@org1.my.com/msp/signcerts/Admin@org1.my.com-cert.pem
 
 if [ "${NOIMPORT}" != "true" ]; then
     CARDOUTPUT=/tmp/PeerAdmin@hlfv1.card

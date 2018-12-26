@@ -1,21 +1,21 @@
 version: '2'
 
 services:
-  ca.org1.myai.com:
+  ca.org1.my.com:
     image: hyperledger/fabric-ca:1.2.1
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
-      - FABRIC_CA_SERVER_CA_NAME=ca.org1.myai.com
+      - FABRIC_CA_SERVER_CA_NAME=ca.org1.my.com
 
     ports:
       - "7054:7054"
-    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.myai.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/a01818cbedea41687415275c19918e45167e8468b68202fa9ebd9336bacc92ad_sk -b admin:adminpw -d'
+    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.my.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/a01818cbedea41687415275c19918e45167e8468b68202fa9ebd9336bacc92ad_sk -b admin:adminpw -d'
     volumes:
-      - ./crypto-config/peerOrganizations/org1.myai.com/ca/:/etc/hyperledger/fabric-ca-server-config
-    container_name: ca.org1.myai.com
+      - ./crypto-config/peerOrganizations/org1.my.com/ca/:/etc/hyperledger/fabric-ca-server-config
+    container_name: ca.org1.my.com
 
-  orderer.myai.com:
-    container_name: orderer.myai.com
+  orderer.my.com:
+    container_name: orderer.my.com
     image: hyperledger/fabric-orderer:1.2.1
     environment:
       - ORDERER_GENERAL_LOGLEVEL=debug
@@ -30,17 +30,17 @@ services:
       - 7050:7050
     volumes:
         - ./:/etc/hyperledger/configtx
-        - ./crypto-config/ordererOrganizations/myai.com/orderers/orderer.myai.com/msp:/etc/hyperledger/msp/orderer/msp
+        - ./crypto-config/ordererOrganizations/my.com/orderers/orderer.my.com/msp:/etc/hyperledger/msp/orderer/msp
 
-  peer0.org1.myai.com:
-    container_name: peer0.org1.myai.com
+  peer0.org1.my.com:
+    container_name: peer0.org1.my.com
     image: hyperledger/fabric-peer:1.2.1
     environment:
       - CORE_LOGGING_LEVEL=debug
       - CORE_CHAINCODE_LOGGING_LEVEL=DEBUG
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
-      - CORE_PEER_ID=peer0.org1.myai.com
-      - CORE_PEER_ADDRESS=peer0.org1.myai.com:7051
+      - CORE_PEER_ID=peer0.org1.my.com
+      - CORE_PEER_ADDRESS=peer0.org1.my.com:7051
       - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=composer_default
       - CORE_PEER_LOCALMSPID=Org1MSP
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp
@@ -55,10 +55,10 @@ services:
     volumes:
         - /var/run/:/host/var/run/
         - ./:/etc/hyperledger/configtx
-        - ./crypto-config/peerOrganizations/org1.myai.com/peers/peer0.org1.myai.com/msp:/etc/hyperledger/peer/msp
-        - ./crypto-config/peerOrganizations/org1.myai.com/users:/etc/hyperledger/msp/users
+        - ./crypto-config/peerOrganizations/org1.my.com/peers/peer0.org1.my.com/msp:/etc/hyperledger/peer/msp
+        - ./crypto-config/peerOrganizations/org1.my.com/users:/etc/hyperledger/msp/users
     depends_on:
-      - orderer.myai.com
+      - orderer.my.com
       - couchdb
 
   couchdb:
