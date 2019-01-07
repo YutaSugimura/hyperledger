@@ -53,6 +53,9 @@ Organizations:
         # MSPDir is the filesystem path which contains the MSP configuration
         MSPDir: crypto-config/ordererOrganizations/example.com/msp
 
+        # turn off security for the channel
+        AdminPrincipal: Role.MEMBER
+
     - &Org1
         # DefaultOrg defines the organization which is used in the sampleconfig
         # of the fabric.git development environment
@@ -63,6 +66,8 @@ Organizations:
 
         MSPDir: crypto-config/peerOrganizations/org1.example.com/msp
 
+        # turn off security for the peer
+        AdminPrincipal: Role.MEMBER
 
         AnchorPeers:
             # AnchorPeers defines the location of peers which can be used
