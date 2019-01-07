@@ -1,3 +1,10 @@
+docker kill $(docker ps -q)
+docker rm $(docker ps -aq)
+docker rmi $(docker images dev-* -q)
+
+./start.sh
+
+
 composer card delete -c PeerAdmin@fabric-network
 composer card delete -c admin@tutorial-network
 rm -fr ~/.composer
