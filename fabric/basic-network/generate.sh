@@ -19,6 +19,18 @@ if [ "$?" -ne 0 ]; then
   exit 1
 fi
 
+# _sk file
+echo "Update services/ca.org1.example.com/command section of docker-composer.yml and docker-compose-dev.yml to refer to correct ca.keyfile:"
+echo " "
+basename $(ls -1 crypto-config/peerOrganizations/org1.example.com/ca/*_sk)
+echo " "
+
+echo "Update PRIVATE_KEY value in ../createPeerAdminCard.sh to refer to correct private key file:"
+echo ""
+ls -1 crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/*_sk
+echo ""
+
+
 # generate genesis block for orderer
 configtxgen -profile OneOrgOrdererGenesis -outputBlock ./config/genesis.block
 if [ "$?" -ne 0 ]; then
