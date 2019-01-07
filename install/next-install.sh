@@ -19,10 +19,18 @@ mkdir ~/composer && cd ~/composer
 curl -O https://raw.githubusercontent.com/hyperledger/composer-tools/master/packages/fabric-dev-servers/fabric-dev-servers.tar.gz
 tar -xvf fabric-dev-servers.tar.gz
 
-cd ~/composer
-export FABRIC_VERSION=hlfv12
-./downloadFabric.sh
+# Download.sh
 
-cd ~/composer
-export FABRIC_VERSION=hlfv12
-./startFabric.sh
+##
+#cd ~/composer
+#export FABRIC_VERSION=hlfv12
+#./downloadFabric.sh
+##
+
+# Start.sh
+
+##
+#cd ~/composer
+#export FABRIC_VERSION=hlfv12
+#./startFabric.sh
+##
