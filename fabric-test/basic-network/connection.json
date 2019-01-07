@@ -10,7 +10,7 @@
     "certificateAuthorities": {
         "ca.example.com": {
             "url": "http://localhost:7054",
-            "caName": "ca.org1.example.com"
+            "caName": "ca.example.com"
         }
     },
     "orderers": {
