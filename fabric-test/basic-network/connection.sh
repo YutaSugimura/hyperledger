@@ -2,7 +2,7 @@ composer card delete -c PeerAdmin@fabric-network
 composer card delete -c admin@tutorial-network
 rm -fr ~/.composer
 
-composer card create -p connection.json -u PeerAdmin -c Admin@org1.example.com-cert.pem -k 9173aadbcf98b376d338f071333f618643aa07da02cb8bd1059f15d917c35692_sk -r PeerAdmin -r ChannelAdmin
+composer card create -p connection.json -u PeerAdmin -c key/Admin@org1.example.com-cert.pem -k key/9173aadbcf98b376d338f071333f618643aa07da02cb8bd1059f15d917c35692_sk -r PeerAdmin -r ChannelAdmin
 
 composer card import -f PeerAdmin@fabric-network.card
 
